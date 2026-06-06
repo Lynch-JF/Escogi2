@@ -104,7 +104,7 @@ nav{display:flex;align-items:center;justify-content:space-between;padding:18px 6
 .armor-desc{font-size:13px;color:#ffffff48;line-height:1.75}
 .armor-tag{display:inline-block;margin-top:12px;font-size:9px;letter-spacing:3px;color:var(--red2);border:1px solid #c0392b33;padding:4px 12px;text-transform:uppercase}
 .precio-section{padding:110px 64px;background:var(--dark);position:relative;overflow:hidden}
-.precio-inner{max-width:1100px;margin:70px auto 0;display:grid;grid-template-columns:1fr 1fr;gap:2px;background:#ffffff07}
+.precio-inner{max-width:520px;margin:70px auto 0;background:none;gap:0}
 .precio-card{background:var(--dark);padding:56px 48px;position:relative;overflow:hidden;display:flex;flex-direction:column}
 .precio-card.featured{background:var(--dark2)}
 .precio-card.featured::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:var(--red)}
@@ -123,8 +123,6 @@ nav{display:flex;align-items:center;justify-content:space-between;padding:18px 6
 .precio-check.gold-check svg{stroke:#d4a017}
 .btn-inscribir{font-family:'Bebas Neue',sans-serif;font-size:16px;letter-spacing:5px;padding:16px;width:100%;background:var(--red);color:#fff;border:none;cursor:pointer;clip-path:polygon(8px 0,100% 0,calc(100% - 8px) 100%,0 100%);transition:background .2s,transform .1s;text-align:center}
 .btn-inscribir:hover{background:var(--red2)}
-.btn-inscribir-ghost{font-family:'Bebas Neue',sans-serif;font-size:15px;letter-spacing:5px;padding:15px;width:100%;background:transparent;color:#ffffff44;border:1px solid #ffffff12;cursor:pointer;clip-path:polygon(8px 0,100% 0,calc(100% - 8px) 100%,0 100%);transition:all .2s;text-align:center}
-.btn-inscribir-ghost:hover{border-color:var(--red);color:#fff}
 .precio-note{text-align:center;margin-top:40px;font-size:12px;letter-spacing:2px;color:#ffffff25;text-transform:uppercase}
 .precio-note em{color:var(--red2);font-style:normal}
 .countdown-wrap{display:flex;justify-content:center;gap:2px;background:#ffffff04;padding:36px 48px;max-width:600px;margin:64px auto 0;position:relative}
@@ -133,8 +131,6 @@ nav{display:flex;align-items:center;justify-content:space-between;padding:18px 6
 .cd-unit:last-child{border-right:none}
 .cd-num{font-family:'Bebas Neue',sans-serif;font-size:52px;color:#fff;letter-spacing:2px;line-height:1;margin-bottom:6px}
 .cd-lbl{font-size:9px;letter-spacing:3px;color:#ffffff33;text-transform:uppercase}
-
-/* FORMULARIO */
 .form-section{padding:110px 64px;background:var(--dark2);position:relative;overflow:hidden}
 .form-wrap{max-width:920px;margin:70px auto 0;display:grid;grid-template-columns:340px 1fr;gap:2px;background:#ffffff07}
 .form-info-panel{background:var(--dark3);padding:52px 40px;display:flex;flex-direction:column;justify-content:space-between;position:relative;overflow:hidden}
@@ -175,17 +171,6 @@ nav{display:flex;align-items:center;justify-content:space-between;padding:18px 6
 .citem:has(input:checked){border-color:#c0392b2a;background:#c0392b06}
 .clabel{font-size:12px;color:#ffffff44;line-height:1.5;transition:color .2s}
 .citem:has(input:checked) .clabel{color:#ffffff88}
-.radio-group{display:grid;grid-template-columns:1fr 1fr;gap:8px}
-.ritem{display:flex;align-items:center;gap:10px;cursor:pointer;padding:12px 13px;border:1px solid #ffffff07;transition:border-color .2s,background .2s}
-.ritem:hover{border-color:#ffffff15;background:#ffffff03}
-.ritem input[type=radio]{display:none}
-.rdot{width:13px;height:13px;flex-shrink:0;border:1px solid #ffffff22;border-radius:50%;display:flex;align-items:center;justify-content:center;transition:border-color .2s}
-.rdot::after{content:'';width:5px;height:5px;border-radius:50%;background:transparent;transition:background .15s}
-.ritem:has(input:checked) .rdot{border-color:var(--red)}
-.ritem:has(input:checked) .rdot::after{background:var(--red2)}
-.ritem:has(input:checked){border-color:#c0392b2a;background:#c0392b06}
-.rlabel{font-size:12px;color:#ffffff44;transition:color .2s}
-.ritem:has(input:checked) .rlabel{color:#ffffff88}
 .btn-submit{font-family:'Bebas Neue',sans-serif;font-size:16px;letter-spacing:5px;padding:17px;width:100%;background:var(--red);color:#fff;border:none;cursor:pointer;clip-path:polygon(10px 0,100% 0,calc(100% - 10px) 100%,0 100%);transition:background .2s,transform .1s;text-align:center;margin-top:8px}
 .btn-submit:hover{background:var(--red2)}
 .btn-submit:active{transform:scale(.98)}
@@ -204,7 +189,6 @@ nav{display:flex;align-items:center;justify-content:space-between;padding:18px 6
 .stitle{font-family:'Bebas Neue',sans-serif;font-size:34px;letter-spacing:3px;color:#fff;text-transform:uppercase}
 .ssub{font-size:13px;color:#ffffff44;line-height:1.7;max-width:300px}
 .sverse{font-size:10px;letter-spacing:3px;color:var(--red2);text-transform:uppercase;margin-top:8px}
-
 .cta-section{padding:130px 64px;text-align:center;background:var(--dark2);position:relative;overflow:hidden}
 .cta-cross{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);opacity:.04;width:660px;height:660px}
 .cta-h2{font-family:'Bebas Neue',sans-serif;font-size:clamp(64px,11vw,140px);line-height:.82;color:#fff;text-transform:uppercase;position:relative;z-index:2;margin-bottom:12px}
@@ -231,13 +215,12 @@ footer{padding:28px 64px;border-top:1px solid #ffffff07;display:flex;justify-con
   .pillars-grid{grid-template-columns:1fr 1fr}
   .scripture-section{grid-template-columns:1fr;gap:36px;padding:64px 24px}
   .s-divider{display:none}
-  .precio-inner{grid-template-columns:1fr}
+  .precio-inner{max-width:100%!important}
   footer{padding:20px 24px;flex-direction:column;gap:8px;text-align:center}
   .hero-left{padding:80px 24px}
   .countdown-wrap{padding:28px 16px}
   .form-wrap{grid-template-columns:1fr}
   .fg2{grid-template-columns:1fr}
-  .radio-group{grid-template-columns:1fr}
   .form-panel{padding:36px 24px}
   .form-info-panel{padding:36px 24px}
 }
@@ -260,6 +243,7 @@ footer{padding:28px 64px;border-top:1px solid #ffffff07;display:flex;justify-con
   <button class="nav-cta" onclick="document.getElementById('inscripcion').scrollIntoView({behavior:'smooth'})">Inscríbete</button>
 </nav>
 
+<!-- HERO -->
 <section class="hero" id="inicio">
   <div class="grid-bg"></div>
   <div class="hero-left">
@@ -293,6 +277,7 @@ footer{padding:28px 64px;border-top:1px solid #ffffff07;display:flex;justify-con
   </div>
 </section>
 
+<!-- MARQUEE -->
 <div class="marquee-bar">
   <div class="marquee-inner">
     <span class="mq-item">Soldados del Reino</span><span class="mq-dot">◆</span>
@@ -314,6 +299,7 @@ footer{padding:28px 64px;border-top:1px solid #ffffff07;display:flex;justify-con
   </div>
 </div>
 
+<!-- PILARES -->
 <section class="pillars-section" id="mision">
   <div class="grid-bg"></div>
   <div class="section-header reveal">
@@ -348,6 +334,7 @@ footer{padding:28px 64px;border-top:1px solid #ffffff07;display:flex;justify-con
   </div>
 </section>
 
+<!-- ESCRITURA -->
 <section class="scripture-section">
   <div class="s-verse reveal">"Porque no tenemos lucha contra <em>sangre ni carne</em>, sino contra principados y potestades."</div>
   <div class="s-divider"></div>
@@ -358,6 +345,7 @@ footer{padding:28px 64px;border-top:1px solid #ffffff07;display:flex;justify-con
   </div>
 </section>
 
+<!-- PROGRAMA -->
 <section class="armor-section" id="programa">
   <div class="section-header reveal">
     <div class="section-tag">Programa</div>
@@ -373,33 +361,25 @@ footer{padding:28px 64px;border-top:1px solid #ffffff07;display:flex;justify-con
   </div>
 </section>
 
+<!-- PRECIO -->
 <section class="precio-section" id="precio">
   <div class="grid-bg"></div>
-  <div class="section-header reveal" style="max-width:1100px;margin:0 auto">
-    <div class="section-tag">Inversión</div>
+  <div class="section-header reveal" style="max-width:520px;margin:0 auto;text-align:center">
+    <div class="section-tag" style="justify-content:center">Inversión</div>
     <h2 class="section-h2">Tu lugar en<br/><span class="dim">el campo</span></h2>
   </div>
+
   <div class="precio-inner reveal">
-    <div class="precio-card">
-      <div class="precio-label">Inscripción General</div>
+    <div class="precio-card featured" style="width:100%">
+      <div class="precio-featured-badge">Todo incluido</div>
+      <div class="precio-label">Paquete Completo</div>
       <div class="precio-amount"><span class="precio-currency">RD$</span><span>1,500</span></div>
       <div class="precio-period">Por participante · Pago único</div>
       <div class="precio-divider"></div>
       <ul class="precio-features">
-        <li><div class="precio-check"><svg viewBox="0 0 12 12"><polyline points="1,6 4,9 11,2"/></svg></div><span>3 días completos de campamento</span></li>
-        <li><div class="precio-check"><svg viewBox="0 0 12 12"><polyline points="1,6 4,9 11,2"/></svg></div><span>6 sesiones sobre la Armadura de Dios</span></li>
-        <li><div class="precio-check"><svg viewBox="0 0 12 12"><polyline points="1,6 4,9 11,2"/></svg></div><span>Actividades y dinámicas de grupo</span></li>
-      </ul>
-      <button class="btn-inscribir-ghost" onclick="document.getElementById('inscripcion').scrollIntoView({behavior:'smooth'})">Reservar cupo</button>
-    </div>
-    <div class="precio-card featured">
-      <div class="precio-featured-badge">Incluye todo + más</div>
-      <div class="precio-label">Paquete Completo</div>
-      <div class="precio-amount"><span class="precio-currency">RD$</span><span>1,500</span></div>
-      <div class="precio-period">Por participante · Todo incluido</div>
-      <div class="precio-divider"></div>
-      <ul class="precio-features">
-        <li><div class="precio-check gold-check"><svg viewBox="0 0 12 12"><polyline points="1,6 4,9 11,2"/></svg></div><span>Todo lo del plan general</span></li>
+        <li><div class="precio-check gold-check"><svg viewBox="0 0 12 12"><polyline points="1,6 4,9 11,2"/></svg></div><span>3 días completos de campamento</span></li>
+        <li><div class="precio-check gold-check"><svg viewBox="0 0 12 12"><polyline points="1,6 4,9 11,2"/></svg></div><span>6 sesiones sobre la Armadura de Dios</span></li>
+        <li><div class="precio-check gold-check"><svg viewBox="0 0 12 12"><polyline points="1,6 4,9 11,2"/></svg></div><span>Actividades y dinámicas de grupo</span></li>
         <li><div class="precio-check gold-check"><svg viewBox="0 0 12 12"><polyline points="1,6 4,9 11,2"/></svg></div><span>Alojamiento durante el campamento</span></li>
         <li><div class="precio-check gold-check"><svg viewBox="0 0 12 12"><polyline points="1,6 4,9 11,2"/></svg></div><span>Alimentación completa (3 días)</span></li>
         <li><div class="precio-check gold-check"><svg viewBox="0 0 12 12"><polyline points="1,6 4,9 11,2"/></svg></div><span>Transporte de ida y vuelta</span></li>
@@ -407,6 +387,7 @@ footer{padding:28px 64px;border-top:1px solid #ffffff07;display:flex;justify-con
       <button class="btn-inscribir" onclick="document.getElementById('inscripcion').scrollIntoView({behavior:'smooth'})">Inscribirme ahora</button>
     </div>
   </div>
+
   <div class="countdown-wrap reveal">
     <div class="cd-unit"><span class="cd-num" id="cd-days">00</span><span class="cd-lbl">Días</span></div>
     <div class="cd-unit"><span class="cd-num" id="cd-hours">00</span><span class="cd-lbl">Horas</span></div>
@@ -416,7 +397,7 @@ footer{padding:28px 64px;border-top:1px solid #ffffff07;display:flex;justify-con
   <p class="precio-note reveal">Cupos limitados · Contacta a tu líder de jóvenes · <em>Escogi2</em></p>
 </section>
 
-<!-- FORMULARIO DE INSCRIPCION -->
+<!-- FORMULARIO -->
 <section class="form-section" id="inscripcion">
   <div class="grid-bg"></div>
   <div class="section-header reveal" style="max-width:920px;margin:0 auto">
@@ -439,7 +420,7 @@ footer{padding:28px 64px;border-top:1px solid #ffffff07;display:flex;justify-con
         </div>
         <div class="fstep">
           <div class="fstep-n">2</div>
-          <div><div class="fstep-title">Información del pago</div><div class="fstep-desc">Plan, método de pago y estado de tu abono.</div></div>
+          <div><div class="fstep-title">Información del pago</div><div class="fstep-desc">Método de pago y estado de tu abono.</div></div>
         </div>
         <div class="fstep">
           <div class="fstep-n">3</div>
@@ -521,22 +502,6 @@ footer{padding:28px 64px;border-top:1px solid #ffffff07;display:flex;justify-con
 
         <div class="form-sdiv"><span>Información del pago</span></div>
 
-        <div class="fg">
-          <label class="flabel">Plan seleccionado <em>*</em></label>
-          <div class="radio-group">
-            <label class="ritem">
-              <input type="radio" name="Plan" value="General – RD$1,500" required/>
-              <div class="rdot"></div>
-              <span class="rlabel">General — RD$1,500</span>
-            </label>
-            <label class="ritem">
-              <input type="radio" name="Plan" value="Completo – RD$1,500 (todo incluido)"/>
-              <div class="rdot"></div>
-              <span class="rlabel">Completo — RD$1,500</span>
-            </label>
-          </div>
-        </div>
-
         <div class="fg2">
           <div class="fg">
             <label class="flabel" for="metodoPago">Método de pago <em>*</em></label>
@@ -610,6 +575,7 @@ footer{padding:28px 64px;border-top:1px solid #ffffff07;display:flex;justify-con
   </div>
 </section>
 
+<!-- CTA FINAL -->
 <section class="cta-section" id="contacto">
   <svg class="cta-cross" viewBox="0 0 200 200"><rect x="82" y="10" width="36" height="180" fill="white"/><rect x="10" y="62" width="180" height="36" fill="white"/></svg>
   <div class="cta-h2 reveal">¿Listo<br/><span class="dim">para</span><br/><span class="fire">pelear?</span></div>
@@ -687,10 +653,7 @@ form.addEventListener('submit',async function(e){
   // Validar campos requeridos
   let valid=true;
   form.querySelectorAll('[required]').forEach(el=>{
-    if(el.type==='radio'){
-      const ok=[...form.querySelectorAll(`[name="${el.name}"]`)].some(r=>r.checked);
-      if(!ok){valid=false;}
-    } else if(!el.value.trim()){
+    if(!el.value.trim()){
       valid=false;
       el.style.borderColor='#c0392b88';
     } else {
@@ -707,6 +670,9 @@ form.addEventListener('submit',async function(e){
   // Construir objeto de datos
   const fd=new FormData(form);
   const data={Timestamp:new Date().toLocaleString('es-DO',{timeZone:'America/Santo_Domingo'})};
+
+  // Plan fijo (único plan disponible)
+  data['Plan']='Completo – RD$1,500 (todo incluido)';
 
   // Campos normales (excluir checkboxes que manejamos aparte)
   const checkNames=['Busca_Crecimiento_Espiritual','Busca_Identidad','Busca_Comunidad','Busca_Liberacion','Busca_Liderazgo'];
