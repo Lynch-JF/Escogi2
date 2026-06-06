@@ -8,9 +8,6 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
 <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet"/>
 <style>
-/* ═══════════════════════════════════════
-   ROOT & RESET
-═══════════════════════════════════════ */
 *{margin:0;padding:0;box-sizing:border-box}
 :root{
   --red:#c0392b;
@@ -20,608 +17,236 @@
   --dark2:#0f0f0f;
   --dark3:#181818;
   --white:#ffffff;
-  --muted:#ffffff55;
-  --subtle:#ffffff0d;
 }
 html{scroll-behavior:smooth}
-body{
-  background:var(--dark);
-  color:var(--white);
-  font-family:'Inter',sans-serif;
-  overflow-x:hidden;
-  cursor:none;
-}
-
-/* ═══════════════════════════════════════
-   CUSTOM CURSOR
-═══════════════════════════════════════ */
-.cursor{
-  width:10px;height:10px;
-  background:var(--red2);
-  border-radius:50%;
-  position:fixed;z-index:9999;
-  pointer-events:none;
-  transform:translate(-50%,-50%);
-  transition:width .2s,height .2s,background .2s;
-  mix-blend-mode:difference;
-}
-.cursor-ring{
-  width:36px;height:36px;
-  border:1px solid var(--red2);
-  border-radius:50%;
-  position:fixed;z-index:9998;
-  pointer-events:none;
-  transform:translate(-50%,-50%);
-  transition:all .12s ease;
-  opacity:.5;
-}
+body{background:var(--dark);color:var(--white);font-family:'Inter',sans-serif;overflow-x:hidden;cursor:none}
+.cursor{width:10px;height:10px;background:var(--red2);border-radius:50%;position:fixed;z-index:9999;pointer-events:none;transform:translate(-50%,-50%);transition:width .2s,height .2s;mix-blend-mode:difference}
+.cursor-ring{width:36px;height:36px;border:1px solid var(--red2);border-radius:50%;position:fixed;z-index:9998;pointer-events:none;transform:translate(-50%,-50%);transition:all .12s ease;opacity:.5}
 .cursor.active{width:6px;height:6px}
 .cursor-ring.active{width:48px;height:48px;opacity:.2}
-
-/* ═══════════════════════════════════════
-   GRID BACKGROUND
-═══════════════════════════════════════ */
-.grid-bg{
-  position:absolute;inset:0;
-  background-image:
-    linear-gradient(rgba(255,255,255,0.025) 1px,transparent 1px),
-    linear-gradient(90deg,rgba(255,255,255,0.025) 1px,transparent 1px);
-  background-size:64px 64px;
-  pointer-events:none;z-index:0;
-}
-
-/* ═══════════════════════════════════════
-   NAV
-═══════════════════════════════════════ */
-nav{
-  display:flex;align-items:center;justify-content:space-between;
-  padding:18px 60px;
-  border-bottom:1px solid #ffffff08;
-  background:#08080890;
-  backdrop-filter:blur(12px);
-  position:sticky;top:0;z-index:100;
-}
-.nav-brand{
-  font-family:'Bebas Neue',sans-serif;
-  font-size:28px;letter-spacing:6px;color:#fff;
-}
+.grid-bg{position:absolute;inset:0;background-image:linear-gradient(rgba(255,255,255,0.025) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,0.025) 1px,transparent 1px);background-size:64px 64px;pointer-events:none;z-index:0}
+nav{display:flex;align-items:center;justify-content:space-between;padding:18px 60px;border-bottom:1px solid #ffffff08;background:#08080890;backdrop-filter:blur(12px);position:sticky;top:0;z-index:100}
+.nav-brand{font-family:'Bebas Neue',sans-serif;font-size:28px;letter-spacing:6px;color:#fff}
 .nav-brand em{color:var(--red2);font-style:normal}
-.nav-badge{
-  font-size:10px;letter-spacing:4px;color:#ffffff35;
-  text-transform:uppercase;border:1px solid #ffffff12;
-  padding:5px 16px;
-}
+.nav-badge{font-size:10px;letter-spacing:4px;color:#ffffff35;text-transform:uppercase;border:1px solid #ffffff12;padding:5px 16px}
 .nav-links{display:flex;gap:40px;list-style:none}
-.nav-links a{
-  font-size:11px;letter-spacing:3px;text-transform:uppercase;
-  color:#ffffff44;text-decoration:none;transition:color .2s;
-  cursor:none;
-}
+.nav-links a{font-size:11px;letter-spacing:3px;text-transform:uppercase;color:#ffffff44;text-decoration:none;transition:color .2s;cursor:none}
 .nav-links a:hover{color:#fff}
-.nav-cta{
-  font-family:'Bebas Neue',sans-serif;
-  font-size:14px;letter-spacing:4px;
-  padding:10px 28px;
-  background:var(--red);color:#fff;border:none;
-  cursor:none;
-  clip-path:polygon(6px 0,100% 0,calc(100% - 6px) 100%,0 100%);
-  transition:background .2s;
-}
+.nav-cta{font-family:'Bebas Neue',sans-serif;font-size:14px;letter-spacing:4px;padding:10px 28px;background:var(--red);color:#fff;border:none;cursor:none;clip-path:polygon(6px 0,100% 0,calc(100% - 6px) 100%,0 100%);transition:background .2s}
 .nav-cta:hover{background:var(--red2)}
-
-/* ═══════════════════════════════════════
-   HERO
-═══════════════════════════════════════ */
-.hero{
-  position:relative;
-  min-height:100vh;
-  display:grid;
-  grid-template-columns:1fr 1fr;
-  overflow:hidden;
-}
-.hero-left{
-  position:relative;z-index:2;
-  padding:100px 60px 100px 64px;
-  display:flex;flex-direction:column;justify-content:center;
-  border-right:1px solid #ffffff08;
-}
-.eyebrow{
-  display:flex;align-items:center;gap:14px;
-  margin-bottom:32px;
-}
+.hero{position:relative;min-height:100vh;display:grid;grid-template-columns:1fr 1fr;overflow:hidden}
+.hero-left{position:relative;z-index:2;padding:100px 60px 100px 64px;display:flex;flex-direction:column;justify-content:center;border-right:1px solid #ffffff08}
+.eyebrow{display:flex;align-items:center;gap:14px;margin-bottom:32px}
 .eyebrow-line{width:36px;height:1px;background:var(--red2)}
-.eyebrow-txt{
-  font-size:10px;letter-spacing:5px;
-  color:var(--red2);text-transform:uppercase;font-weight:600;
-}
-.hero-h1{
-  font-family:'Bebas Neue',sans-serif;
-  font-size:clamp(80px,9vw,128px);
-  line-height:.85;letter-spacing:1px;
-  color:#fff;text-transform:uppercase;
-  margin-bottom:36px;
-}
-.hero-h1 .outline{
-  color:transparent;
-  -webkit-text-stroke:1.5px var(--red2);
-}
-.verse-block{
-  border-left:2px solid var(--red);
-  padding-left:22px;margin-bottom:44px;
-}
-.verse-block p{
-  font-size:15px;color:#ffffff77;
-  line-height:1.8;font-style:italic;margin-bottom:8px;
-}
-.verse-block cite{
-  font-size:10px;letter-spacing:4px;color:var(--red2);
-  text-transform:uppercase;font-style:normal;
-}
+.eyebrow-txt{font-size:10px;letter-spacing:5px;color:var(--red2);text-transform:uppercase;font-weight:600}
+.hero-h1{font-family:'Bebas Neue',sans-serif;font-size:clamp(80px,9vw,128px);line-height:.85;letter-spacing:1px;color:#fff;text-transform:uppercase;margin-bottom:36px}
+.hero-h1 .outline{color:transparent;-webkit-text-stroke:1.5px var(--red2)}
+.verse-block{border-left:2px solid var(--red);padding-left:22px;margin-bottom:44px}
+.verse-block p{font-size:15px;color:#ffffff77;line-height:1.8;font-style:italic;margin-bottom:8px}
+.verse-block cite{font-size:10px;letter-spacing:4px;color:var(--red2);text-transform:uppercase;font-style:normal}
 .btn-row{display:flex;gap:14px;flex-wrap:wrap}
-.btn-primary{
-  font-family:'Bebas Neue',sans-serif;
-  font-size:16px;letter-spacing:4px;
-  padding:15px 40px;background:var(--red);
-  color:#fff;border:none;cursor:none;
-  clip-path:polygon(8px 0,100% 0,calc(100% - 8px) 100%,0 100%);
-  transition:background .2s,transform .1s;
-}
+.btn-primary{font-family:'Bebas Neue',sans-serif;font-size:16px;letter-spacing:4px;padding:15px 40px;background:var(--red);color:#fff;border:none;cursor:none;clip-path:polygon(8px 0,100% 0,calc(100% - 8px) 100%,0 100%);transition:background .2s,transform .1s}
 .btn-primary:hover{background:var(--red2)}
-.btn-primary:active{transform:scale(.97)}
-.btn-secondary{
-  font-family:'Bebas Neue',sans-serif;
-  font-size:15px;letter-spacing:4px;
-  padding:14px 34px;background:transparent;
-  color:#ffffff55;
-  border:1px solid #ffffff1a;cursor:none;
-  clip-path:polygon(8px 0,100% 0,calc(100% - 8px) 100%,0 100%);
-  transition:all .2s;
-}
+.btn-secondary{font-family:'Bebas Neue',sans-serif;font-size:15px;letter-spacing:4px;padding:14px 34px;background:transparent;color:#ffffff55;border:1px solid #ffffff1a;cursor:none;clip-path:polygon(8px 0,100% 0,calc(100% - 8px) 100%,0 100%);transition:all .2s}
 .btn-secondary:hover{border-color:var(--red);color:#fff}
-
-.hero-right{
-  position:relative;
-  display:flex;align-items:center;justify-content:center;
-  overflow:hidden;
-}
-.hero-right-glow{
-  position:absolute;inset:0;
-  background:radial-gradient(ellipse at 50% 50%,#c0392b18 0%,transparent 68%);
-}
-.hero-cross-bg{
-  position:absolute;opacity:.055;
-  width:520px;height:520px;
-}
-.logo-wrap{
-  position:relative;z-index:3;
-  display:flex;flex-direction:column;align-items:center;gap:24px;
-}
-.logo-ring{
-  width:240px;height:240px;
-  border:1px solid #c0392b2a;border-radius:50%;
-  display:flex;align-items:center;justify-content:center;
-  position:relative;
-  animation:pulse-ring 3s ease-in-out infinite;
-}
-.logo-ring::before{
-  content:'';position:absolute;
-  width:200px;height:200px;
-  border:1px solid #c0392b15;border-radius:50%;
-}
-@keyframes pulse-ring{
-  0%,100%{box-shadow:0 0 0 0 #c0392b18}
-  50%{box-shadow:0 0 0 20px transparent}
-}
-.logo-ring img{
-  width:170px;height:170px;object-fit:contain;
-}
-.hero-stats{
-  display:flex;gap:0;border:1px solid #ffffff08;
-}
-.stat{
-  padding:22px 30px;text-align:center;
-  border-right:1px solid #ffffff08;
-}
+.hero-right{position:relative;display:flex;align-items:center;justify-content:center;overflow:hidden}
+.hero-right-glow{position:absolute;inset:0;background:radial-gradient(ellipse at 50% 50%,#c0392b18 0%,transparent 68%)}
+.hero-cross-bg{position:absolute;opacity:.055;width:520px;height:520px}
+.logo-wrap{position:relative;z-index:3;display:flex;flex-direction:column;align-items:center;gap:24px}
+.logo-ring{width:240px;height:240px;border:1px solid #c0392b2a;border-radius:50%;display:flex;align-items:center;justify-content:center;position:relative;animation:pulse-ring 3s ease-in-out infinite}
+.logo-ring::before{content:'';position:absolute;width:200px;height:200px;border:1px solid #c0392b15;border-radius:50%}
+@keyframes pulse-ring{0%,100%{box-shadow:0 0 0 0 #c0392b18}50%{box-shadow:0 0 0 20px transparent}}
+.logo-ring img{width:170px;height:170px;object-fit:contain}
+.hero-stats{display:flex;gap:0;border:1px solid #ffffff08}
+.stat{padding:22px 30px;text-align:center;border-right:1px solid #ffffff08}
 .stat:last-child{border-right:none}
-.stat-num{
-  font-family:'Bebas Neue',sans-serif;
-  font-size:38px;color:var(--red2);
-  display:block;letter-spacing:2px;
-}
-.stat-lbl{
-  font-size:9px;letter-spacing:3px;color:#ffffff33;text-transform:uppercase;
-}
-
-/* ═══════════════════════════════════════
-   MARQUEE
-═══════════════════════════════════════ */
+.stat-num{font-family:'Bebas Neue',sans-serif;font-size:38px;color:var(--red2);display:block;letter-spacing:2px}
+.stat-lbl{font-size:9px;letter-spacing:3px;color:#ffffff33;text-transform:uppercase}
 .marquee-bar{background:var(--red);padding:13px 0;overflow:hidden;white-space:nowrap}
 .marquee-inner{display:inline-flex;gap:48px;animation:marquee 22s linear infinite}
 @keyframes marquee{from{transform:translateX(0)}to{transform:translateX(-50%)}}
-.mq-item{
-  font-family:'Bebas Neue',sans-serif;
-  font-size:15px;letter-spacing:5px;color:#fff;opacity:.9;text-transform:uppercase;
-}
+.mq-item{font-family:'Bebas Neue',sans-serif;font-size:15px;letter-spacing:5px;color:#fff;opacity:.9;text-transform:uppercase}
 .mq-dot{color:rgba(255,255,255,.4);font-size:9px}
-
-/* ═══════════════════════════════════════
-   PILLARS
-═══════════════════════════════════════ */
-.pillars-section{
-  background:var(--dark2);
-  padding:110px 64px;
-  position:relative;overflow:hidden;
-}
+.pillars-section{background:var(--dark2);padding:110px 64px;position:relative;overflow:hidden}
 .section-header{margin-bottom:70px}
-.section-tag{
-  font-size:10px;letter-spacing:5px;color:var(--red2);
-  text-transform:uppercase;font-weight:600;
-  display:flex;align-items:center;gap:14px;margin-bottom:14px;
-}
+.section-tag{font-size:10px;letter-spacing:5px;color:var(--red2);text-transform:uppercase;font-weight:600;display:flex;align-items:center;gap:14px;margin-bottom:14px}
 .section-tag::after{content:'';flex:0 0 40px;height:1px;background:var(--red2)}
-.section-h2{
-  font-family:'Bebas Neue',sans-serif;
-  font-size:clamp(50px,7vw,84px);
-  line-height:.88;color:#fff;text-transform:uppercase;
-}
-.section-h2 .dim{
-  color:transparent;-webkit-text-stroke:1px #ffffff18;
-}
-.pillars-grid{
-  display:grid;
-  grid-template-columns:repeat(4,1fr);
-  gap:1px;background:#ffffff08;
-}
-.pillar-card{
-  background:var(--dark2);padding:44px 30px;
-  position:relative;overflow:hidden;
-  transition:background .3s;
-}
-.pillar-card::before{
-  content:'';position:absolute;
-  top:0;left:0;right:0;height:2px;
-  background:transparent;transition:background .3s;
-}
+.section-h2{font-family:'Bebas Neue',sans-serif;font-size:clamp(50px,7vw,84px);line-height:.88;color:#fff;text-transform:uppercase}
+.section-h2 .dim{color:transparent;-webkit-text-stroke:1px #ffffff18}
+.pillars-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:#ffffff08}
+.pillar-card{background:var(--dark2);padding:44px 30px;position:relative;overflow:hidden;transition:background .3s}
+.pillar-card::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;background:transparent;transition:background .3s}
 .pillar-card:hover{background:#0d0d0d}
 .pillar-card:hover::before{background:var(--red)}
-.p-num{
-  font-family:'Bebas Neue',sans-serif;
-  font-size:72px;color:#ffffff04;line-height:1;
-  margin-bottom:-12px;display:block;
-}
-.p-icon{
-  width:28px;height:28px;stroke:var(--red2);
-  fill:none;stroke-width:1.5;margin-bottom:18px;display:block;
-}
-.p-h3{
-  font-family:'Bebas Neue',sans-serif;
-  font-size:22px;letter-spacing:2px;color:#fff;
-  text-transform:uppercase;margin-bottom:12px;
-}
+.p-num{font-family:'Bebas Neue',sans-serif;font-size:72px;color:#ffffff04;line-height:1;margin-bottom:-12px;display:block}
+.p-icon{width:28px;height:28px;stroke:var(--red2);fill:none;stroke-width:1.5;margin-bottom:18px;display:block}
+.p-h3{font-family:'Bebas Neue',sans-serif;font-size:22px;letter-spacing:2px;color:#fff;text-transform:uppercase;margin-bottom:12px}
 .p-desc{font-size:13px;color:#ffffff50;line-height:1.8}
-
-/* ═══════════════════════════════════════
-   SCRIPTURE FULL
-═══════════════════════════════════════ */
-.scripture-section{
-  background:var(--dark);
-  padding:90px 64px;
-  display:grid;
-  grid-template-columns:1.2fr 1px 1fr;
-  gap:72px;align-items:center;
-}
-.s-verse{
-  font-family:'Bebas Neue',sans-serif;
-  font-size:clamp(36px,5vw,62px);
-  line-height:1.05;color:#fff;text-transform:uppercase;
-}
+.scripture-section{background:var(--dark);padding:90px 64px;display:grid;grid-template-columns:1.2fr 1px 1fr;gap:72px;align-items:center}
+.s-verse{font-family:'Bebas Neue',sans-serif;font-size:clamp(36px,5vw,62px);line-height:1.05;color:#fff;text-transform:uppercase}
 .s-verse em{color:var(--red2);font-style:normal}
 .s-divider{background:#ffffff0d;align-self:stretch}
 .s-context{display:flex;flex-direction:column;gap:22px}
 .s-context p{font-size:14px;color:#ffffff50;line-height:1.85}
-.s-ref{
-  font-size:11px;letter-spacing:4px;color:var(--red2);
-  text-transform:uppercase;display:flex;align-items:center;gap:10px;
-}
+.s-ref{font-size:11px;letter-spacing:4px;color:var(--red2);text-transform:uppercase;display:flex;align-items:center;gap:10px}
 .s-ref::before{content:'';width:28px;height:1px;background:var(--red2)}
-
-/* ═══════════════════════════════════════
-   ARMOR TIMELINE
-═══════════════════════════════════════ */
-.armor-section{
-  padding:110px 64px;background:var(--dark2);
-  position:relative;overflow:hidden;
-}
+.armor-section{padding:110px 64px;background:var(--dark2);position:relative;overflow:hidden}
 .armor-section .section-header{text-align:center}
 .armor-section .section-tag{justify-content:center}
 .armor-section .section-tag::after{display:none}
-.armor-list{
-  display:flex;flex-direction:column;
-  max-width:820px;margin:64px auto 0;
-}
-.armor-item{
-  display:grid;
-  grid-template-columns:90px 1px 1fr;
-  gap:0 36px;
-  padding:30px 0;
-  border-bottom:1px solid #ffffff07;
-  align-items:start;
-  transition:background .2s;
-}
+.armor-list{display:flex;flex-direction:column;max-width:820px;margin:64px auto 0}
+.armor-item{display:grid;grid-template-columns:90px 1px 1fr;gap:0 36px;padding:30px 0;border-bottom:1px solid #ffffff07;align-items:start}
 .armor-item:last-child{border-bottom:none}
-.armor-n{
-  font-family:'Bebas Neue',sans-serif;
-  font-size:54px;color:var(--red);
-  line-height:1;text-align:right;
-}
+.armor-n{font-family:'Bebas Neue',sans-serif;font-size:54px;color:var(--red);line-height:1;text-align:right}
 .armor-sep{background:#ffffff0d}
 .armor-body{padding-left:8px}
-.armor-h4{
-  font-family:'Bebas Neue',sans-serif;
-  font-size:24px;letter-spacing:2px;
-  color:#fff;text-transform:uppercase;margin-bottom:8px;
-}
+.armor-h4{font-family:'Bebas Neue',sans-serif;font-size:24px;letter-spacing:2px;color:#fff;text-transform:uppercase;margin-bottom:8px}
 .armor-desc{font-size:13px;color:#ffffff48;line-height:1.75}
-.armor-tag{
-  display:inline-block;margin-top:12px;
-  font-size:9px;letter-spacing:3px;
-  color:var(--red2);border:1px solid #c0392b33;
-  padding:4px 12px;text-transform:uppercase;
-}
-
-/* ═══════════════════════════════════════
-   PRECIO
-═══════════════════════════════════════ */
-.precio-section{
-  padding:110px 64px;
-  background:var(--dark);
-  position:relative;overflow:hidden;
-}
-.precio-section .grid-bg{opacity:.4}
-
-.precio-inner{
-  max-width:1100px;margin:0 auto;
-  display:grid;
-  grid-template-columns:1fr 1fr;
-  gap:2px;background:#ffffff07;
-  margin-top:70px;
-}
-
-.precio-card{
-  background:var(--dark);
-  padding:56px 48px;
-  position:relative;overflow:hidden;
-  display:flex;flex-direction:column;
-}
-.precio-card.featured{
-  background:var(--dark2);
-}
-.precio-card.featured::before{
-  content:'';position:absolute;
-  top:0;left:0;right:0;height:3px;
-  background:var(--red);
-}
-.precio-featured-badge{
-  display:inline-flex;align-items:center;gap:8px;
-  font-size:9px;letter-spacing:4px;
-  color:var(--red2);
-  border:1px solid var(--red)44;
-  padding:5px 14px;
-  text-transform:uppercase;
-  margin-bottom:32px;
-  width:fit-content;
-}
-.precio-featured-badge::before{
-  content:'';width:6px;height:6px;
-  background:var(--red2);border-radius:50%;
-}
-.precio-label{
-  font-size:10px;letter-spacing:5px;
-  color:#ffffff33;text-transform:uppercase;
-  margin-bottom:16px;
-}
-.precio-amount{
-  font-family:'Bebas Neue',sans-serif;
-  font-size:clamp(64px,8vw,96px);
-  line-height:.85;color:#fff;
-  letter-spacing:-1px;
-  margin-bottom:6px;
-  display:flex;align-items:flex-start;gap:0;
-}
-.precio-currency{
-  font-family:'Bebas Neue',sans-serif;
-  font-size:28px;color:var(--red2);
-  line-height:1.4;
-  margin-right:4px;
-}
-.precio-period{
-  font-size:11px;letter-spacing:3px;color:#ffffff30;
-  text-transform:uppercase;margin-bottom:40px;
-}
-.precio-divider{
-  width:100%;height:1px;
-  background:#ffffff08;margin-bottom:36px;
-}
-.precio-features{
-  list-style:none;
-  display:flex;flex-direction:column;gap:16px;
-  margin-bottom:44px;
-  flex:1;
-}
-.precio-features li{
-  display:flex;align-items:flex-start;gap:14px;
-  font-size:14px;color:#ffffff77;line-height:1.5;
-}
-.precio-check{
-  width:18px;height:18px;flex-shrink:0;
-  border:1px solid var(--red)66;
-  display:flex;align-items:center;justify-content:center;
-  margin-top:1px;
-}
+.armor-tag{display:inline-block;margin-top:12px;font-size:9px;letter-spacing:3px;color:var(--red2);border:1px solid #c0392b33;padding:4px 12px;text-transform:uppercase}
+.precio-section{padding:110px 64px;background:var(--dark);position:relative;overflow:hidden}
+.precio-inner{max-width:1100px;margin:70px auto 0;display:grid;grid-template-columns:1fr 1fr;gap:2px;background:#ffffff07}
+.precio-card{background:var(--dark);padding:56px 48px;position:relative;overflow:hidden;display:flex;flex-direction:column}
+.precio-card.featured{background:var(--dark2)}
+.precio-card.featured::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:var(--red)}
+.precio-featured-badge{display:inline-flex;align-items:center;gap:8px;font-size:9px;letter-spacing:4px;color:var(--red2);border:1px solid #c0392b44;padding:5px 14px;text-transform:uppercase;margin-bottom:32px;width:fit-content}
+.precio-featured-badge::before{content:'';width:6px;height:6px;background:var(--red2);border-radius:50%}
+.precio-label{font-size:10px;letter-spacing:5px;color:#ffffff33;text-transform:uppercase;margin-bottom:16px}
+.precio-amount{font-family:'Bebas Neue',sans-serif;font-size:clamp(64px,8vw,96px);line-height:.85;color:#fff;letter-spacing:-1px;margin-bottom:6px;display:flex;align-items:flex-start}
+.precio-currency{font-family:'Bebas Neue',sans-serif;font-size:28px;color:var(--red2);line-height:1.4;margin-right:4px}
+.precio-period{font-size:11px;letter-spacing:3px;color:#ffffff30;text-transform:uppercase;margin-bottom:40px}
+.precio-divider{width:100%;height:1px;background:#ffffff08;margin-bottom:36px}
+.precio-features{list-style:none;display:flex;flex-direction:column;gap:16px;margin-bottom:44px;flex:1}
+.precio-features li{display:flex;align-items:flex-start;gap:14px;font-size:14px;color:#ffffff77;line-height:1.5}
+.precio-check{width:18px;height:18px;flex-shrink:0;border:1px solid #c0392b66;display:flex;align-items:center;justify-content:center;margin-top:1px}
 .precio-check svg{width:10px;height:10px;stroke:var(--red2);fill:none;stroke-width:2}
 .precio-check.gold-check{border-color:#d4a01766}
 .precio-check.gold-check svg{stroke:#d4a017}
-
-.btn-inscribir{
-  font-family:'Bebas Neue',sans-serif;
-  font-size:16px;letter-spacing:5px;
-  padding:16px;width:100%;
-  background:var(--red);color:#fff;
-  border:none;cursor:pointer;
-  clip-path:polygon(8px 0,100% 0,calc(100% - 8px) 100%,0 100%);
-  transition:background .2s,transform .1s;
-  text-align:center;
-}
+.btn-inscribir{font-family:'Bebas Neue',sans-serif;font-size:16px;letter-spacing:5px;padding:16px;width:100%;background:var(--red);color:#fff;border:none;cursor:pointer;clip-path:polygon(8px 0,100% 0,calc(100% - 8px) 100%,0 100%);transition:background .2s,transform .1s;text-align:center}
 .btn-inscribir:hover{background:var(--red2)}
-.btn-inscribir:active{transform:scale(.98)}
-
-.btn-inscribir-ghost{
-  font-family:'Bebas Neue',sans-serif;
-  font-size:15px;letter-spacing:5px;
-  padding:15px;width:100%;
-  background:transparent;color:#ffffff44;
-  border:1px solid #ffffff12;cursor:pointer;
-  clip-path:polygon(8px 0,100% 0,calc(100% - 8px) 100%,0 100%);
-  transition:all .2s;text-align:center;
-}
+.btn-inscribir-ghost{font-family:'Bebas Neue',sans-serif;font-size:15px;letter-spacing:5px;padding:15px;width:100%;background:transparent;color:#ffffff44;border:1px solid #ffffff12;cursor:pointer;clip-path:polygon(8px 0,100% 0,calc(100% - 8px) 100%,0 100%);transition:all .2s;text-align:center}
 .btn-inscribir-ghost:hover{border-color:var(--red);color:#fff}
-
-.precio-note{
-  text-align:center;margin-top:40px;
-  font-size:12px;letter-spacing:2px;
-  color:#ffffff25;text-transform:uppercase;
-}
+.precio-note{text-align:center;margin-top:40px;font-size:12px;letter-spacing:2px;color:#ffffff25;text-transform:uppercase}
 .precio-note em{color:var(--red2);font-style:normal}
-
-/* Countdown */
-.countdown-wrap{
-  margin-top:64px;
-  display:flex;justify-content:center;
-  gap:2px;
-  background:#ffffff04;
-  padding:36px 48px;
-  max-width:600px;
-  margin:64px auto 0;
-  position:relative;
-}
-.countdown-wrap::before{
-  content:'PRECIO DISPONIBLE POR';
-  position:absolute;top:-10px;left:50%;transform:translateX(-50%);
-  font-size:9px;letter-spacing:4px;color:#ffffff33;
-  text-transform:uppercase;white-space:nowrap;
-  background:var(--dark);padding:0 14px;
-}
-.cd-unit{
-  display:flex;flex-direction:column;align-items:center;
-  padding:20px 28px;flex:1;
-  border-right:1px solid #ffffff08;
-}
+.countdown-wrap{display:flex;justify-content:center;gap:2px;background:#ffffff04;padding:36px 48px;max-width:600px;margin:64px auto 0;position:relative}
+.countdown-wrap::before{content:'PRECIO DISPONIBLE POR';position:absolute;top:-10px;left:50%;transform:translateX(-50%);font-size:9px;letter-spacing:4px;color:#ffffff33;text-transform:uppercase;white-space:nowrap;background:var(--dark);padding:0 14px}
+.cd-unit{display:flex;flex-direction:column;align-items:center;padding:20px 28px;flex:1;border-right:1px solid #ffffff08}
 .cd-unit:last-child{border-right:none}
-.cd-num{
-  font-family:'Bebas Neue',sans-serif;
-  font-size:52px;color:#fff;letter-spacing:2px;
-  line-height:1;margin-bottom:6px;
-  transition:color .3s;
-}
-.cd-lbl{
-  font-size:9px;letter-spacing:3px;color:#ffffff33;text-transform:uppercase;
-}
+.cd-num{font-family:'Bebas Neue',sans-serif;font-size:52px;color:#fff;letter-spacing:2px;line-height:1;margin-bottom:6px}
+.cd-lbl{font-size:9px;letter-spacing:3px;color:#ffffff33;text-transform:uppercase}
 
-/* ═══════════════════════════════════════
-   CTA FINAL
-═══════════════════════════════════════ */
-.cta-section{
-  padding:130px 64px;text-align:center;
-  background:var(--dark2);position:relative;overflow:hidden;
-}
-.cta-cross{
-  position:absolute;top:50%;left:50%;
-  transform:translate(-50%,-50%);
-  opacity:.04;width:660px;height:660px;
-}
-.cta-h2{
-  font-family:'Bebas Neue',sans-serif;
-  font-size:clamp(64px,11vw,140px);
-  line-height:.82;color:#fff;text-transform:uppercase;
-  position:relative;z-index:2;margin-bottom:12px;
-}
+/* FORMULARIO */
+.form-section{padding:110px 64px;background:var(--dark2);position:relative;overflow:hidden}
+.form-wrap{max-width:920px;margin:70px auto 0;display:grid;grid-template-columns:340px 1fr;gap:2px;background:#ffffff07}
+.form-info-panel{background:var(--dark3);padding:52px 40px;display:flex;flex-direction:column;justify-content:space-between;position:relative;overflow:hidden}
+.form-info-panel::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:var(--red)}
+.form-cross-bg{position:absolute;bottom:-40px;right:-40px;width:200px;height:200px;opacity:.03}
+.fip-tag{font-family:'Bebas Neue',sans-serif;font-size:18px;letter-spacing:3px;color:var(--red2);text-transform:uppercase;margin-bottom:6px}
+.fip-desc{font-size:12px;color:#ffffff30;line-height:1.7}
+.form-steps{display:flex;flex-direction:column;gap:24px;margin-top:32px}
+.fstep{display:flex;align-items:flex-start;gap:14px}
+.fstep-n{font-family:'Bebas Neue',sans-serif;font-size:30px;color:var(--red);line-height:1;flex-shrink:0;width:28px}
+.fstep-title{font-family:'Bebas Neue',sans-serif;font-size:14px;letter-spacing:2px;color:#fff;text-transform:uppercase;margin-bottom:3px}
+.fstep-desc{font-size:11px;color:#ffffff38;line-height:1.6}
+.fip-quote{margin-top:36px;border-left:2px solid #c0392b44;padding-left:14px}
+.fip-quote p{font-size:11px;color:#ffffff28;line-height:1.7;font-style:italic}
+.fip-quote cite{font-size:9px;letter-spacing:3px;color:var(--red2);text-transform:uppercase;font-style:normal;display:block;margin-top:6px}
+.form-panel{background:var(--dark);padding:48px 44px;position:relative}
+.form-sdiv{display:flex;align-items:center;gap:12px;margin:24px 0 18px}
+.form-sdiv span{font-size:9px;letter-spacing:4px;color:var(--red2);text-transform:uppercase;white-space:nowrap}
+.form-sdiv::before,.form-sdiv::after{content:'';flex:1;height:1px;background:#ffffff08}
+.fg{margin-bottom:18px}
+.fg2{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.flabel{display:block;font-size:9px;letter-spacing:4px;color:#ffffff30;text-transform:uppercase;margin-bottom:8px}
+.flabel em{color:var(--red2);font-style:normal}
+.finput,.fselect,.ftextarea{width:100%;background:#ffffff05;border:1px solid #ffffff0f;color:#fff;font-family:'Inter',sans-serif;font-size:13px;padding:12px 15px;outline:none;transition:border-color .2s,background .2s;appearance:none;-webkit-appearance:none}
+.finput:focus,.fselect:focus,.ftextarea:focus{border-color:#c0392b77;background:#c0392b07}
+.finput::placeholder,.ftextarea::placeholder{color:#ffffff1a}
+.ftextarea{resize:vertical;min-height:90px;line-height:1.6}
+.fselect{background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 24 24' fill='none' stroke='%23c0392b' stroke-width='2'%3E%3Cpolyline points='6 9 12 15 18 9'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:right 13px center;padding-right:36px;cursor:pointer}
+.fselect option{background:#111;color:#fff}
+.check-group{display:flex;flex-direction:column;gap:8px}
+.citem{display:flex;align-items:flex-start;gap:10px;cursor:pointer;padding:9px 12px;border:1px solid #ffffff07;transition:border-color .2s,background .2s}
+.citem:hover{border-color:#ffffff15;background:#ffffff03}
+.citem input[type=checkbox]{display:none}
+.cbox{width:15px;height:15px;flex-shrink:0;border:1px solid #ffffff20;display:flex;align-items:center;justify-content:center;margin-top:1px;transition:border-color .2s,background .2s}
+.cbox svg{width:8px;height:8px;stroke:transparent;fill:none;stroke-width:2.5;transition:stroke .15s}
+.citem:has(input:checked) .cbox{border-color:var(--red);background:#c0392b14}
+.citem:has(input:checked) .cbox svg{stroke:var(--red2)}
+.citem:has(input:checked){border-color:#c0392b2a;background:#c0392b06}
+.clabel{font-size:12px;color:#ffffff44;line-height:1.5;transition:color .2s}
+.citem:has(input:checked) .clabel{color:#ffffff88}
+.radio-group{display:grid;grid-template-columns:1fr 1fr;gap:8px}
+.ritem{display:flex;align-items:center;gap:10px;cursor:pointer;padding:12px 13px;border:1px solid #ffffff07;transition:border-color .2s,background .2s}
+.ritem:hover{border-color:#ffffff15;background:#ffffff03}
+.ritem input[type=radio]{display:none}
+.rdot{width:13px;height:13px;flex-shrink:0;border:1px solid #ffffff22;border-radius:50%;display:flex;align-items:center;justify-content:center;transition:border-color .2s}
+.rdot::after{content:'';width:5px;height:5px;border-radius:50%;background:transparent;transition:background .15s}
+.ritem:has(input:checked) .rdot{border-color:var(--red)}
+.ritem:has(input:checked) .rdot::after{background:var(--red2)}
+.ritem:has(input:checked){border-color:#c0392b2a;background:#c0392b06}
+.rlabel{font-size:12px;color:#ffffff44;transition:color .2s}
+.ritem:has(input:checked) .rlabel{color:#ffffff88}
+.btn-submit{font-family:'Bebas Neue',sans-serif;font-size:16px;letter-spacing:5px;padding:17px;width:100%;background:var(--red);color:#fff;border:none;cursor:pointer;clip-path:polygon(10px 0,100% 0,calc(100% - 10px) 100%,0 100%);transition:background .2s,transform .1s;text-align:center;margin-top:8px}
+.btn-submit:hover{background:var(--red2)}
+.btn-submit:active{transform:scale(.98)}
+.btn-submit:disabled{background:#ffffff12;color:#ffffff30;cursor:not-allowed}
+.form-status{display:none;margin-top:16px;padding:14px 18px;font-size:11px;letter-spacing:2px;text-transform:uppercase;text-align:center}
+.form-status.success{display:block;border:1px solid #27ae6033;color:#27ae60;background:#27ae6008}
+.form-status.error{display:block;border:1px solid #c0392b44;color:var(--red2);background:#c0392b08}
+.form-loading{display:none;position:absolute;inset:0;background:#08080895;align-items:center;justify-content:center;backdrop-filter:blur(4px);z-index:5}
+.form-loading.active{display:flex}
+.spinner{width:36px;height:36px;border:2px solid #ffffff10;border-top-color:var(--red2);border-radius:50%;animation:spin .8s linear infinite}
+@keyframes spin{to{transform:rotate(360deg)}}
+.form-success-overlay{display:none;position:absolute;inset:0;background:var(--dark);align-items:center;justify-content:center;flex-direction:column;gap:18px;text-align:center;padding:40px;z-index:10}
+.form-success-overlay.active{display:flex}
+.sicon{width:60px;height:60px;border:1px solid #27ae6044;border-radius:50%;display:flex;align-items:center;justify-content:center}
+.sicon svg{width:26px;height:26px;stroke:#27ae60;fill:none;stroke-width:1.5}
+.stitle{font-family:'Bebas Neue',sans-serif;font-size:34px;letter-spacing:3px;color:#fff;text-transform:uppercase}
+.ssub{font-size:13px;color:#ffffff44;line-height:1.7;max-width:300px}
+.sverse{font-size:10px;letter-spacing:3px;color:var(--red2);text-transform:uppercase;margin-top:8px}
+
+.cta-section{padding:130px 64px;text-align:center;background:var(--dark2);position:relative;overflow:hidden}
+.cta-cross{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);opacity:.04;width:660px;height:660px}
+.cta-h2{font-family:'Bebas Neue',sans-serif;font-size:clamp(64px,11vw,140px);line-height:.82;color:#fff;text-transform:uppercase;position:relative;z-index:2;margin-bottom:12px}
 .cta-h2 .dim{color:transparent;-webkit-text-stroke:1px #ffffff18}
 .cta-h2 .fire{color:var(--red2)}
-.cta-sub{
-  font-size:11px;letter-spacing:5px;color:#ffffff33;
-  text-transform:uppercase;margin-bottom:52px;
-  position:relative;z-index:2;
-}
-.cta-btn-big{
-  font-family:'Bebas Neue',sans-serif;
-  font-size:18px;letter-spacing:6px;
-  padding:20px 64px;
-  background:var(--red);color:#fff;
-  border:none;cursor:pointer;
-  clip-path:polygon(12px 0,100% 0,calc(100% - 12px) 100%,0 100%);
-  position:relative;z-index:2;
-  transition:background .2s,transform .1s;
-}
+.cta-sub{font-size:11px;letter-spacing:5px;color:#ffffff33;text-transform:uppercase;margin-bottom:52px;position:relative;z-index:2}
+.cta-btn-big{font-family:'Bebas Neue',sans-serif;font-size:18px;letter-spacing:6px;padding:20px 64px;background:var(--red);color:#fff;border:none;cursor:pointer;clip-path:polygon(12px 0,100% 0,calc(100% - 12px) 100%,0 100%);position:relative;z-index:2;transition:background .2s,transform .1s}
 .cta-btn-big:hover{background:var(--red2)}
-.cta-btn-big:active{transform:scale(.97)}
-
-/* ═══════════════════════════════════════
-   FOOTER
-═══════════════════════════════════════ */
-footer{
-  padding:28px 64px;
-  border-top:1px solid #ffffff07;
-  display:flex;justify-content:space-between;align-items:center;
-  background:var(--dark);
-}
-.footer-brand{
-  font-family:'Bebas Neue',sans-serif;
-  font-size:20px;letter-spacing:4px;color:#ffffff22;
-}
+footer{padding:28px 64px;border-top:1px solid #ffffff07;display:flex;justify-content:space-between;align-items:center;background:var(--dark)}
+.footer-brand{font-family:'Bebas Neue',sans-serif;font-size:20px;letter-spacing:4px;color:#ffffff22}
 .footer-brand em{color:var(--red);font-style:normal}
 .footer-copy{font-size:10px;letter-spacing:2px;color:#ffffff18;text-transform:uppercase}
-
-/* ═══════════════════════════════════════
-   SCROLL REVEAL
-═══════════════════════════════════════ */
-.reveal{
-  opacity:0;transform:translateY(32px);
-  transition:opacity .7s ease,transform .7s ease;
-}
+.reveal{opacity:0;transform:translateY(32px);transition:opacity .7s ease,transform .7s ease}
 .reveal.visible{opacity:1;transform:translateY(0)}
 .reveal-delay-1{transition-delay:.1s}
 .reveal-delay-2{transition-delay:.2s}
 .reveal-delay-3{transition-delay:.3s}
-.reveal-delay-4{transition-delay:.4s}
-
-/* ═══════════════════════════════════════
-   RESPONSIVE
-═══════════════════════════════════════ */
 @media(max-width:900px){
   .hero{grid-template-columns:1fr}
   .hero-right{min-height:50vh}
   nav{padding:14px 24px}
   .nav-links,.nav-badge{display:none}
-  .pillars-section,.armor-section,.precio-section,.cta-section{padding:64px 24px}
+  .pillars-section,.armor-section,.precio-section,.cta-section,.form-section{padding:64px 24px}
   .pillars-grid{grid-template-columns:1fr 1fr}
-  .scripture-section{
-    grid-template-columns:1fr;gap:36px;padding:64px 24px;
-  }
+  .scripture-section{grid-template-columns:1fr;gap:36px;padding:64px 24px}
   .s-divider{display:none}
   .precio-inner{grid-template-columns:1fr}
   footer{padding:20px 24px;flex-direction:column;gap:8px;text-align:center}
   .hero-left{padding:80px 24px}
   .countdown-wrap{padding:28px 16px}
+  .form-wrap{grid-template-columns:1fr}
+  .fg2{grid-template-columns:1fr}
+  .radio-group{grid-template-columns:1fr}
+  .form-panel{padding:36px 24px}
+  .form-info-panel{padding:36px 24px}
 }
 </style>
 </head>
 <body>
-
-<!-- Cursor -->
 <div class="cursor" id="cursor"></div>
 <div class="cursor-ring" id="cursorRing"></div>
 
-<!-- ═══ NAV ═══ -->
 <nav>
   <div class="nav-brand">Escogi<em>2</em></div>
   <div class="nav-badge">Ministerio de Jóvenes</div>
@@ -630,72 +255,44 @@ footer{
     <li><a href="#mision">Misión</a></li>
     <li><a href="#programa">Programa</a></li>
     <li><a href="#precio">Precio</a></li>
+    <li><a href="#inscripcion">Inscríbete</a></li>
   </ul>
-  <button class="nav-cta" onclick="document.getElementById('precio').scrollIntoView({behavior:'smooth'})">
-    Inscríbete
-  </button>
+  <button class="nav-cta" onclick="document.getElementById('inscripcion').scrollIntoView({behavior:'smooth'})">Inscríbete</button>
 </nav>
 
-<!-- ═══ HERO ═══ -->
 <section class="hero" id="inicio">
   <div class="grid-bg"></div>
-
   <div class="hero-left">
     <div class="eyebrow reveal">
       <div class="eyebrow-line"></div>
       <span class="eyebrow-txt">Campamento Cristiano · 2026</span>
     </div>
-
-    <h1 class="hero-h1 reveal reveal-delay-1">
-      Soldados<br/>
-      del <span class="outline">Reino</span>
-    </h1>
-
+    <h1 class="hero-h1 reveal reveal-delay-1">Soldados<br/>del <span class="outline">Reino</span></h1>
     <div class="verse-block reveal reveal-delay-2">
       <p>"Vestíos de toda la armadura de Dios, para que podáis estar firmes contra las asechanzas del diablo."</p>
       <cite>Efesios 6:11 · RV1960</cite>
     </div>
-
     <div class="btn-row reveal reveal-delay-3">
-      <button class="btn-primary" onclick="document.getElementById('precio').scrollIntoView({behavior:'smooth'})">
-        Inscríbete ahora
-      </button>
-      <button class="btn-secondary" onclick="document.getElementById('programa').scrollIntoView({behavior:'smooth'})">
-        Ver programa
-      </button>
+      <button class="btn-primary" onclick="document.getElementById('inscripcion').scrollIntoView({behavior:'smooth'})">Inscríbete ahora</button>
+      <button class="btn-secondary" onclick="document.getElementById('programa').scrollIntoView({behavior:'smooth'})">Ver programa</button>
     </div>
   </div>
-
   <div class="hero-right">
     <div class="hero-right-glow"></div>
-    <svg class="hero-cross-bg" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
-      <rect x="82" y="10" width="36" height="180" fill="white"/>
-      <rect x="10" y="62" width="180" height="36" fill="white"/>
-    </svg>
+    <svg class="hero-cross-bg" viewBox="0 0 200 200"><rect x="82" y="10" width="36" height="180" fill="white"/><rect x="10" y="62" width="180" height="36" fill="white"/></svg>
     <div class="logo-wrap reveal">
       <div class="logo-ring">
-        <!-- Logo Escogi2 — reemplazar src con ruta real del logo -->
-        <img src="logo-escogi2.png" alt="Escogi2" onerror="this.outerHTML='<div style=\'font-family:Bebas Neue,sans-serif;font-size:42px;color:#c0392b;letter-spacing:4px;\'>ESCOGI<span style=\'color:#fff\'>2</span></div>'"/>
+        <img src="logo-escogi2.png" alt="Escogi2" onerror="this.outerHTML='&lt;div style=&quot;font-family:Bebas Neue,sans-serif;font-size:42px;color:#c0392b;letter-spacing:4px;&quot;&gt;ESCOGI&lt;span style=&quot;color:#fff&quot;&gt;2&lt;/span&gt;&lt;/div&gt;'"/>
       </div>
       <div class="hero-stats">
-        <div class="stat">
-          <span class="stat-num">3</span>
-          <span class="stat-lbl">Días</span>
-        </div>
-        <div class="stat">
-          <span class="stat-num">6</span>
-          <span class="stat-lbl">Piezas</span>
-        </div>
-        <div class="stat">
-          <span class="stat-num">1</span>
-          <span class="stat-lbl">Misión</span>
-        </div>
+        <div class="stat"><span class="stat-num">3</span><span class="stat-lbl">Días</span></div>
+        <div class="stat"><span class="stat-num">6</span><span class="stat-lbl">Piezas</span></div>
+        <div class="stat"><span class="stat-num">1</span><span class="stat-lbl">Misión</span></div>
       </div>
     </div>
   </div>
 </section>
 
-<!-- ═══ MARQUEE ═══ -->
 <div class="marquee-bar">
   <div class="marquee-inner">
     <span class="mq-item">Soldados del Reino</span><span class="mq-dot">◆</span>
@@ -703,7 +300,7 @@ footer{
     <span class="mq-item">Armadura de Dios</span><span class="mq-dot">◆</span>
     <span class="mq-item">Escogi2</span><span class="mq-dot">◆</span>
     <span class="mq-item">Ministerio de Jóvenes</span><span class="mq-dot">◆</span>
-    <span class="mq-item">Campamento 2025</span><span class="mq-dot">◆</span>
+    <span class="mq-item">Campamento 2026</span><span class="mq-dot">◆</span>
     <span class="mq-item">No con armas físicas</span><span class="mq-dot">◆</span>
     <span class="mq-item">Sino con fe</span><span class="mq-dot">◆</span>
     <span class="mq-item">Soldados del Reino</span><span class="mq-dot">◆</span>
@@ -711,21 +308,17 @@ footer{
     <span class="mq-item">Armadura de Dios</span><span class="mq-dot">◆</span>
     <span class="mq-item">Escogi2</span><span class="mq-dot">◆</span>
     <span class="mq-item">Ministerio de Jóvenes</span><span class="mq-dot">◆</span>
-    <span class="mq-item">Campamento 2025</span><span class="mq-dot">◆</span>
+    <span class="mq-item">Campamento 2026</span><span class="mq-dot">◆</span>
     <span class="mq-item">No con armas físicas</span><span class="mq-dot">◆</span>
     <span class="mq-item">Sino con fe</span><span class="mq-dot">◆</span>
   </div>
 </div>
 
-<!-- ═══ PILARES ═══ -->
 <section class="pillars-section" id="mision">
   <div class="grid-bg"></div>
   <div class="section-header reveal">
     <div class="section-tag">El concepto</div>
-    <h2 class="section-h2">
-      No con armas<br/>
-      <span class="dim">sino con fe</span>
-    </h2>
+    <h2 class="section-h2">No con armas<br/><span class="dim">sino con fe</span></h2>
   </div>
   <div class="pillars-grid">
     <div class="pillar-card reveal">
@@ -755,11 +348,8 @@ footer{
   </div>
 </section>
 
-<!-- ═══ ESCRITURA ═══ -->
 <section class="scripture-section">
-  <div class="s-verse reveal">
-    "Porque no tenemos lucha contra <em>sangre ni carne</em>, sino contra principados y potestades."
-  </div>
+  <div class="s-verse reveal">"Porque no tenemos lucha contra <em>sangre ni carne</em>, sino contra principados y potestades."</div>
   <div class="s-divider"></div>
   <div class="s-context reveal reveal-delay-1">
     <p>Pablo no hablaba de enemigos físicos. La batalla más importante del cristiano ocurre en el espíritu, en la mente y en la voluntad.</p>
@@ -768,266 +358,389 @@ footer{
   </div>
 </section>
 
-<!-- ═══ ARMADURA / PROGRAMA ═══ -->
 <section class="armor-section" id="programa">
   <div class="section-header reveal">
     <div class="section-tag">Programa</div>
     <h2 class="section-h2">La armadura <span class="dim">completa</span></h2>
   </div>
   <div class="armor-list">
-    <div class="armor-item reveal">
-      <div class="armor-n">01</div>
-      <div class="armor-sep"></div>
-      <div class="armor-body">
-        <h4 class="armor-h4">Casco de la Salvación</h4>
-        <p class="armor-desc">Protege tu mente — el campo de batalla más importante del cristiano. Lo que piensas determina cómo peleas.</p>
-        <span class="armor-tag">Día 1 · Mañana</span>
-      </div>
-    </div>
-    <div class="armor-item reveal">
-      <div class="armor-n">02</div>
-      <div class="armor-sep"></div>
-      <div class="armor-body">
-        <h4 class="armor-h4">Coraza de Justicia</h4>
-        <p class="armor-desc">Vivir en integridad es la armadura que el enemigo no puede penetrar. La santidad no es debilidad — es fortaleza.</p>
-        <span class="armor-tag">Día 1 · Tarde</span>
-      </div>
-    </div>
-    <div class="armor-item reveal">
-      <div class="armor-n">03</div>
-      <div class="armor-sep"></div>
-      <div class="armor-body">
-        <h4 class="armor-h4">Escudo de la Fe</h4>
-        <p class="armor-desc">Apaga todo dardo encendido: la duda, el miedo, la mentira. La fe no es ciega — es entrenada y activa.</p>
-        <span class="armor-tag">Día 2 · Mañana</span>
-      </div>
-    </div>
-    <div class="armor-item reveal">
-      <div class="armor-n">04</div>
-      <div class="armor-sep"></div>
-      <div class="armor-body">
-        <h4 class="armor-h4">Espada del Espíritu</h4>
-        <p class="armor-desc">La Palabra de Dios — tu única arma ofensiva. No defensiva. Ofensiva. Aprende a usarla con precisión.</p>
-        <span class="armor-tag">Día 2 · Tarde</span>
-      </div>
-    </div>
-    <div class="armor-item reveal">
-      <div class="armor-n">05</div>
-      <div class="armor-sep"></div>
-      <div class="armor-body">
-        <h4 class="armor-h4">Calzado del Evangelio</h4>
-        <p class="armor-desc">Estás listo para moverse. Llevas paz a donde vas y eso desconcierta completamente al enemigo.</p>
-        <span class="armor-tag">Día 3 · Mañana</span>
-      </div>
-    </div>
-    <div class="armor-item reveal">
-      <div class="armor-n">06</div>
-      <div class="armor-sep"></div>
-      <div class="armor-body">
-        <h4 class="armor-h4">Cinto de la Verdad</h4>
-        <p class="armor-desc">La verdad te hace libre. El soldado que no conoce la verdad no puede pelear — es víctima de la confusión.</p>
-        <span class="armor-tag">Día 3 · Tarde · Clausura</span>
-      </div>
-    </div>
+    <div class="armor-item reveal"><div class="armor-n">01</div><div class="armor-sep"></div><div class="armor-body"><h4 class="armor-h4">Casco de la Salvación</h4><p class="armor-desc">Protege tu mente — el campo de batalla más importante del cristiano. Lo que piensas determina cómo peleas.</p><span class="armor-tag">Día 1 · Mañana</span></div></div>
+    <div class="armor-item reveal"><div class="armor-n">02</div><div class="armor-sep"></div><div class="armor-body"><h4 class="armor-h4">Coraza de Justicia</h4><p class="armor-desc">Vivir en integridad es la armadura que el enemigo no puede penetrar. La santidad no es debilidad — es fortaleza.</p><span class="armor-tag">Día 1 · Tarde</span></div></div>
+    <div class="armor-item reveal"><div class="armor-n">03</div><div class="armor-sep"></div><div class="armor-body"><h4 class="armor-h4">Escudo de la Fe</h4><p class="armor-desc">Apaga todo dardo encendido: la duda, el miedo, la mentira. La fe no es ciega — es entrenada y activa.</p><span class="armor-tag">Día 2 · Mañana</span></div></div>
+    <div class="armor-item reveal"><div class="armor-n">04</div><div class="armor-sep"></div><div class="armor-body"><h4 class="armor-h4">Espada del Espíritu</h4><p class="armor-desc">La Palabra de Dios — tu única arma ofensiva. No defensiva. Ofensiva. Aprende a usarla con precisión.</p><span class="armor-tag">Día 2 · Tarde</span></div></div>
+    <div class="armor-item reveal"><div class="armor-n">05</div><div class="armor-sep"></div><div class="armor-body"><h4 class="armor-h4">Calzado del Evangelio</h4><p class="armor-desc">Estás listo para moverse. Llevas paz a donde vas y eso desconcierta completamente al enemigo.</p><span class="armor-tag">Día 3 · Mañana</span></div></div>
+    <div class="armor-item reveal"><div class="armor-n">06</div><div class="armor-sep"></div><div class="armor-body"><h4 class="armor-h4">Cinto de la Verdad</h4><p class="armor-desc">La verdad te hace libre. El soldado que no conoce la verdad no puede pelear — es víctima de la confusión.</p><span class="armor-tag">Día 3 · Tarde · Clausura</span></div></div>
   </div>
 </section>
 
-<!-- ═══ PRECIO ═══ -->
 <section class="precio-section" id="precio">
   <div class="grid-bg"></div>
   <div class="section-header reveal" style="max-width:1100px;margin:0 auto">
     <div class="section-tag">Inversión</div>
-    <h2 class="section-h2">
-      Tu lugar en<br/>
-      <span class="dim">el campo</span>
-    </h2>
+    <h2 class="section-h2">Tu lugar en<br/><span class="dim">el campo</span></h2>
   </div>
-
   <div class="precio-inner reveal">
-
-    <!-- Card general -->
     <div class="precio-card">
       <div class="precio-label">Inscripción General</div>
-      <div class="precio-amount">
-        <span class="precio-currency">RD$</span>
-        <span id="precioNum">1,500</span>
-      </div>
+      <div class="precio-amount"><span class="precio-currency">RD$</span><span>1,500</span></div>
       <div class="precio-period">Por participante · Pago único</div>
       <div class="precio-divider"></div>
       <ul class="precio-features">
-        <li>
-          <div class="precio-check"><svg viewBox="0 0 12 12"><polyline points="1,6 4,9 11,2"/></svg></div>
-          <span>3 días completos de campamento</span>
-        </li>
-        <li>
-          <div class="precio-check"><svg viewBox="0 0 12 12"><polyline points="1,6 4,9 11,2"/></svg></div>
-          <span>6 sesiones sobre la Armadura de Dios</span>
-        </li>
-        <li>
-          <div class="precio-check"><svg viewBox="0 0 12 12"><polyline points="1,6 4,9 11,2"/></svg></div>
-          <span>Actividades y dinámicas de grupo</span>
-        </li>
+        <li><div class="precio-check"><svg viewBox="0 0 12 12"><polyline points="1,6 4,9 11,2"/></svg></div><span>3 días completos de campamento</span></li>
+        <li><div class="precio-check"><svg viewBox="0 0 12 12"><polyline points="1,6 4,9 11,2"/></svg></div><span>6 sesiones sobre la Armadura de Dios</span></li>
+        <li><div class="precio-check"><svg viewBox="0 0 12 12"><polyline points="1,6 4,9 11,2"/></svg></div><span>Actividades y dinámicas de grupo</span></li>
       </ul>
-      <button class="btn-inscribir-ghost" onclick="document.getElementById('contacto').scrollIntoView({behavior:'smooth'})">
-        Reservar cupo
-      </button>
+      <button class="btn-inscribir-ghost" onclick="document.getElementById('inscripcion').scrollIntoView({behavior:'smooth'})">Reservar cupo</button>
     </div>
-
-    <!-- Card featured -->
     <div class="precio-card featured">
       <div class="precio-featured-badge">Incluye todo + más</div>
       <div class="precio-label">Paquete Completo</div>
-      <div class="precio-amount">
-        <span class="precio-currency">RD$</span>
-        <span>1,500</span>
-      </div>
+      <div class="precio-amount"><span class="precio-currency">RD$</span><span>1,500</span></div>
       <div class="precio-period">Por participante · Todo incluido</div>
       <div class="precio-divider"></div>
       <ul class="precio-features">
-        <li>
-          <div class="precio-check gold-check"><svg viewBox="0 0 12 12"><polyline points="1,6 4,9 11,2"/></svg></div>
-          <span>Todo lo del plan general</span>
-        </li>
-        <li>
-          <div class="precio-check gold-check"><svg viewBox="0 0 12 12"><polyline points="1,6 4,9 11,2"/></svg></div>
-          <span>Alojamiento durante el campamento</span>
-        </li>
-        <li>
-          <div class="precio-check gold-check"><svg viewBox="0 0 12 12"><polyline points="1,6 4,9 11,2"/></svg></div>
-          <span>Alimentación completa (3 días)</span>
-        </li>
-        <li>
-          <div class="precio-check gold-check"><svg viewBox="0 0 12 12"><polyline points="1,6 4,9 11,2"/></svg></div>
-          <span>Transporte de ida y vuelta</span>
-        </li>
+        <li><div class="precio-check gold-check"><svg viewBox="0 0 12 12"><polyline points="1,6 4,9 11,2"/></svg></div><span>Todo lo del plan general</span></li>
+        <li><div class="precio-check gold-check"><svg viewBox="0 0 12 12"><polyline points="1,6 4,9 11,2"/></svg></div><span>Alojamiento durante el campamento</span></li>
+        <li><div class="precio-check gold-check"><svg viewBox="0 0 12 12"><polyline points="1,6 4,9 11,2"/></svg></div><span>Alimentación completa (3 días)</span></li>
+        <li><div class="precio-check gold-check"><svg viewBox="0 0 12 12"><polyline points="1,6 4,9 11,2"/></svg></div><span>Transporte de ida y vuelta</span></li>
       </ul>
-      <button class="btn-inscribir">
-        Inscribirme ahora
-      </button>
+      <button class="btn-inscribir" onclick="document.getElementById('inscripcion').scrollIntoView({behavior:'smooth'})">Inscribirme ahora</button>
     </div>
   </div>
-
-  <!-- Countdown -->
   <div class="countdown-wrap reveal">
-    <div class="cd-unit">
-      <span class="cd-num" id="cd-days">00</span>
-      <span class="cd-lbl">Días</span>
-    </div>
-    <div class="cd-unit">
-      <span class="cd-num" id="cd-hours">00</span>
-      <span class="cd-lbl">Horas</span>
-    </div>
-    <div class="cd-unit">
-      <span class="cd-num" id="cd-mins">00</span>
-      <span class="cd-lbl">Minutos</span>
-    </div>
-    <div class="cd-unit">
-      <span class="cd-num" id="cd-secs">00</span>
-      <span class="cd-lbl">Segundos</span>
-    </div>
+    <div class="cd-unit"><span class="cd-num" id="cd-days">00</span><span class="cd-lbl">Días</span></div>
+    <div class="cd-unit"><span class="cd-num" id="cd-hours">00</span><span class="cd-lbl">Horas</span></div>
+    <div class="cd-unit"><span class="cd-num" id="cd-mins">00</span><span class="cd-lbl">Minutos</span></div>
+    <div class="cd-unit"><span class="cd-num" id="cd-secs">00</span><span class="cd-lbl">Segundos</span></div>
   </div>
-
-  <p class="precio-note reveal">
-    Cupos limitados · Contacta a tu líder de jóvenes · <em>Escogi2</em>
-  </p>
+  <p class="precio-note reveal">Cupos limitados · Contacta a tu líder de jóvenes · <em>Escogi2</em></p>
 </section>
 
-<!-- ═══ CTA FINAL ═══ -->
+<!-- FORMULARIO DE INSCRIPCION -->
+<section class="form-section" id="inscripcion">
+  <div class="grid-bg"></div>
+  <div class="section-header reveal" style="max-width:920px;margin:0 auto">
+    <div class="section-tag">Formulario</div>
+    <h2 class="section-h2">Únete al<br/><span class="dim">batallón</span></h2>
+  </div>
+
+  <div class="form-wrap reveal">
+    <!-- Panel izquierdo informativo -->
+    <div class="form-info-panel">
+      <svg class="form-cross-bg" viewBox="0 0 200 200"><rect x="82" y="10" width="36" height="180" fill="white"/><rect x="10" y="62" width="180" height="36" fill="white"/></svg>
+      <div>
+        <div class="fip-tag">Proceso de inscripción</div>
+        <p class="fip-desc">Completa el formulario. El equipo de líderes revisará tu solicitud y te confirmará el cupo antes del campamento.</p>
+      </div>
+      <div class="form-steps">
+        <div class="fstep">
+          <div class="fstep-n">1</div>
+          <div><div class="fstep-title">Datos personales</div><div class="fstep-desc">Nombre, edad, contacto y familiar de emergencia.</div></div>
+        </div>
+        <div class="fstep">
+          <div class="fstep-n">2</div>
+          <div><div class="fstep-title">Información del pago</div><div class="fstep-desc">Plan, método de pago y estado de tu abono.</div></div>
+        </div>
+        <div class="fstep">
+          <div class="fstep-n">3</div>
+          <div><div class="fstep-title">Tu expectativa</div><div class="fstep-desc">Cuéntanos qué buscas y qué esperas de estos 3 días.</div></div>
+        </div>
+      </div>
+      <div class="fip-quote">
+        <p>"Pelea la buena batalla de la fe, echa mano de la vida eterna."</p>
+        <cite>1 Timoteo 6:12 · RV1960</cite>
+      </div>
+    </div>
+
+    <!-- Panel del formulario -->
+    <div class="form-panel">
+      <div class="form-loading" id="formLoading"><div class="spinner"></div></div>
+      <div class="form-success-overlay" id="formSuccess">
+        <div class="sicon"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></div>
+        <div class="stitle">¡Inscripción enviada!</div>
+        <p class="ssub">Tu solicitud fue recibida. Un líder se comunicará contigo para confirmar tu cupo. Sigue firme en la batalla.</p>
+        <div class="sverse">Filipenses 4:13 · Todo lo puedo en Cristo</div>
+      </div>
+
+      <form id="inscripcionForm" novalidate>
+
+        <div class="form-sdiv"><span>Datos personales</span></div>
+
+        <div class="fg2">
+          <div class="fg">
+            <label class="flabel" for="nombre">Nombre <em>*</em></label>
+            <input class="finput" type="text" id="nombre" name="Nombre" placeholder="Tu nombre" required/>
+          </div>
+          <div class="fg">
+            <label class="flabel" for="apellido">Apellido <em>*</em></label>
+            <input class="finput" type="text" id="apellido" name="Apellido" placeholder="Tu apellido" required/>
+          </div>
+        </div>
+
+        <div class="fg2">
+          <div class="fg">
+            <label class="flabel" for="edad">Edad <em>*</em></label>
+            <input class="finput" type="number" id="edad" name="Edad" placeholder="Ej. 17" min="10" max="35" required/>
+          </div>
+          <div class="fg">
+            <label class="flabel" for="sexo">Sexo <em>*</em></label>
+            <select class="fselect" id="sexo" name="Sexo" required>
+              <option value="" disabled selected>Seleccionar</option>
+              <option value="Masculino">Masculino</option>
+              <option value="Femenino">Femenino</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="fg2">
+          <div class="fg">
+            <label class="flabel" for="telefono">Teléfono <em>*</em></label>
+            <input class="finput" type="tel" id="telefono" name="Telefono" placeholder="809-000-0000" required/>
+          </div>
+          <div class="fg">
+            <label class="flabel" for="email">Correo electrónico</label>
+            <input class="finput" type="email" id="email" name="Email" placeholder="correo@mail.com"/>
+          </div>
+        </div>
+
+        <div class="fg">
+          <label class="flabel" for="iglesia">Iglesia / congregación <em>*</em></label>
+          <input class="finput" type="text" id="iglesia" name="Iglesia" placeholder="Nombre de tu iglesia" required/>
+        </div>
+
+        <div class="fg2">
+          <div class="fg">
+            <label class="flabel" for="cemergencia">Contacto de emergencia <em>*</em></label>
+            <input class="finput" type="text" id="cemergencia" name="Contacto_Emergencia" placeholder="Nombre del familiar" required/>
+          </div>
+          <div class="fg">
+            <label class="flabel" for="temergencia">Teléfono de emergencia <em>*</em></label>
+            <input class="finput" type="tel" id="temergencia" name="Telefono_Emergencia" placeholder="809-000-0000" required/>
+          </div>
+        </div>
+
+        <div class="form-sdiv"><span>Información del pago</span></div>
+
+        <div class="fg">
+          <label class="flabel">Plan seleccionado <em>*</em></label>
+          <div class="radio-group">
+            <label class="ritem">
+              <input type="radio" name="Plan" value="General – RD$1,500" required/>
+              <div class="rdot"></div>
+              <span class="rlabel">General — RD$1,500</span>
+            </label>
+            <label class="ritem">
+              <input type="radio" name="Plan" value="Completo – RD$1,500 (todo incluido)"/>
+              <div class="rdot"></div>
+              <span class="rlabel">Completo — RD$1,500</span>
+            </label>
+          </div>
+        </div>
+
+        <div class="fg2">
+          <div class="fg">
+            <label class="flabel" for="metodoPago">Método de pago <em>*</em></label>
+            <select class="fselect" id="metodoPago" name="Metodo_Pago" required>
+              <option value="" disabled selected>Seleccionar</option>
+              <option value="Efectivo">Efectivo</option>
+              <option value="Transferencia bancaria">Transferencia bancaria</option>
+              <option value="PayPal">PayPal</option>
+              <option value="Otro">Otro</option>
+            </select>
+          </div>
+          <div class="fg">
+            <label class="flabel" for="estadoPago">Estado del pago</label>
+            <select class="fselect" id="estadoPago" name="Estado_Pago">
+              <option value="" disabled selected>¿Ya pagaste?</option>
+              <option value="Pagado">Sí, ya pagué</option>
+              <option value="Pendiente">Aún no he pagado</option>
+              <option value="Pago parcial">Pagué una parte</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="form-sdiv"><span>Tu expectativa</span></div>
+
+        <div class="fg">
+          <label class="flabel">¿Qué buscas en el campamento? <em>*</em></label>
+          <div class="check-group">
+            <label class="citem">
+              <input type="checkbox" name="Busca_Crecimiento_Espiritual" value="Si"/>
+              <div class="cbox"><svg viewBox="0 0 12 12"><polyline points="1,6 4,9 11,2"/></svg></div>
+              <span class="clabel">Crecimiento espiritual y conocer más de Dios</span>
+            </label>
+            <label class="citem">
+              <input type="checkbox" name="Busca_Identidad" value="Si"/>
+              <div class="cbox"><svg viewBox="0 0 12 12"><polyline points="1,6 4,9 11,2"/></svg></div>
+              <span class="clabel">Descubrir mi identidad y propósito en Cristo</span>
+            </label>
+            <label class="citem">
+              <input type="checkbox" name="Busca_Comunidad" value="Si"/>
+              <div class="cbox"><svg viewBox="0 0 12 12"><polyline points="1,6 4,9 11,2"/></svg></div>
+              <span class="clabel">Hacer amistades y comunidad de fe</span>
+            </label>
+            <label class="citem">
+              <input type="checkbox" name="Busca_Liberacion" value="Si"/>
+              <div class="cbox"><svg viewBox="0 0 12 12"><polyline points="1,6 4,9 11,2"/></svg></div>
+              <span class="clabel">Libertad de áreas de batalla personal</span>
+            </label>
+            <label class="citem">
+              <input type="checkbox" name="Busca_Liderazgo" value="Si"/>
+              <div class="cbox"><svg viewBox="0 0 12 12"><polyline points="1,6 4,9 11,2"/></svg></div>
+              <span class="clabel">Desarrollar mi liderazgo y ministerio</span>
+            </label>
+          </div>
+        </div>
+
+        <div class="fg">
+          <label class="flabel" for="expectativa">¿Qué esperas vivir en estos 3 días? <em>*</em></label>
+          <textarea class="ftextarea" id="expectativa" name="Expectativa" placeholder="Cuéntanos con tus propias palabras..." required></textarea>
+        </div>
+
+        <div class="fg">
+          <label class="flabel" for="peticion">Petición de oración (opcional)</label>
+          <textarea class="ftextarea" id="peticion" name="Peticion_Oracion" placeholder="Si hay algo en tu corazón que deseas que el equipo ore por ti..." style="min-height:75px"></textarea>
+        </div>
+
+        <button type="submit" class="btn-submit" id="btnSubmit">Enviar inscripción</button>
+        <div class="form-status" id="formStatus"></div>
+
+      </form>
+    </div>
+  </div>
+</section>
+
 <section class="cta-section" id="contacto">
-  <svg class="cta-cross" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
-    <rect x="82" y="10" width="36" height="180" fill="white"/>
-    <rect x="10" y="62" width="180" height="36" fill="white"/>
-  </svg>
-  <div class="cta-h2 reveal">
-    ¿Listo<br/>
-    <span class="dim">para</span><br/>
-    <span class="fire">pelear?</span>
-  </div>
+  <svg class="cta-cross" viewBox="0 0 200 200"><rect x="82" y="10" width="36" height="180" fill="white"/><rect x="10" y="62" width="180" height="36" fill="white"/></svg>
+  <div class="cta-h2 reveal">¿Listo<br/><span class="dim">para</span><br/><span class="fire">pelear?</span></div>
   <p class="cta-sub reveal">Campamento · Escogi2 · Ministerio de Jóvenes · 2026</p>
-  <button class="cta-btn-big reveal" onclick="document.getElementById('precio').scrollIntoView({behavior:'smooth'})">
-    Registrarme al campamento
-  </button>
+  <button class="cta-btn-big reveal" onclick="document.getElementById('inscripcion').scrollIntoView({behavior:'smooth'})">Registrarme al campamento</button>
 </section>
 
-<!-- ═══ FOOTER ═══ -->
 <footer>
   <div class="footer-brand">Escogi<em>2</em></div>
   <div class="footer-copy">© 2026 · Ministerio de Jóvenes · Soldados del Reino</div>
 </footer>
 
-<!-- ═══════════════════════════════════════
-     JAVASCRIPT
-═══════════════════════════════════════ -->
 <script>
-// ── CURSOR ──
-const cursor = document.getElementById('cursor');
-const ring = document.getElementById('cursorRing');
+// CURSOR
+const cursor=document.getElementById('cursor');
+const ring=document.getElementById('cursorRing');
 let mx=0,my=0,rx=0,ry=0;
-
-document.addEventListener('mousemove',e=>{
-  mx=e.clientX;my=e.clientY;
-  cursor.style.left=mx+'px';cursor.style.top=my+'px';
-});
-
-function animRing(){
-  rx+=(mx-rx)*.12;ry+=(my-ry)*.12;
-  ring.style.left=rx+'px';ring.style.top=ry+'px';
-  requestAnimationFrame(animRing);
-}
-animRing();
-
-document.querySelectorAll('a,button').forEach(el=>{
+document.addEventListener('mousemove',e=>{mx=e.clientX;my=e.clientY;cursor.style.left=mx+'px';cursor.style.top=my+'px';});
+(function animRing(){rx+=(mx-rx)*.12;ry+=(my-ry)*.12;ring.style.left=rx+'px';ring.style.top=ry+'px';requestAnimationFrame(animRing);})();
+document.querySelectorAll('a,button,label,input,select,textarea').forEach(el=>{
   el.addEventListener('mouseenter',()=>{cursor.classList.add('active');ring.classList.add('active')});
   el.addEventListener('mouseleave',()=>{cursor.classList.remove('active');ring.classList.remove('active')});
 });
 
-// ── SCROLL REVEAL ──
-const reveals=document.querySelectorAll('.reveal');
-const obs=new IntersectionObserver(entries=>{
-  entries.forEach(e=>{if(e.isIntersecting)e.target.classList.add('visible')});
-},{threshold:.12});
-reveals.forEach(r=>obs.observe(r));
+// SCROLL REVEAL
+const obs=new IntersectionObserver(entries=>entries.forEach(e=>{if(e.isIntersecting)e.target.classList.add('visible')}),{threshold:.12});
+document.querySelectorAll('.reveal').forEach(r=>obs.observe(r));
 
-// ── COUNTDOWN — fecha objetivo: 30 de junio 2025 ──
-const target=new Date('2025-06-30T08:00:00');
+// COUNTDOWN — cambia la fecha al día del campamento
+const target=new Date('2026-09-01T08:00:00');
 function updateCD(){
-  const now=new Date();
-  const diff=target-now;
-  if(diff<=0){
-    ['cd-days','cd-hours','cd-mins','cd-secs'].forEach(id=>document.getElementById(id).textContent='00');
-    return;
-  }
-  const d=Math.floor(diff/864e5);
-  const h=Math.floor((diff%864e5)/36e5);
-  const m=Math.floor((diff%36e5)/6e4);
-  const s=Math.floor((diff%6e4)/1e3);
+  const diff=target-new Date();
+  if(diff<=0){['cd-days','cd-hours','cd-mins','cd-secs'].forEach(id=>document.getElementById(id).textContent='00');return;}
   const fmt=n=>String(n).padStart(2,'0');
-  document.getElementById('cd-days').textContent=fmt(d);
-  document.getElementById('cd-hours').textContent=fmt(h);
-  document.getElementById('cd-mins').textContent=fmt(m);
-  document.getElementById('cd-secs').textContent=fmt(s);
+  document.getElementById('cd-days').textContent=fmt(Math.floor(diff/864e5));
+  document.getElementById('cd-hours').textContent=fmt(Math.floor((diff%864e5)/36e5));
+  document.getElementById('cd-mins').textContent=fmt(Math.floor((diff%36e5)/6e4));
+  document.getElementById('cd-secs').textContent=fmt(Math.floor((diff%6e4)/1e3));
 }
-updateCD();
-setInterval(updateCD,1000);
+updateCD();setInterval(updateCD,1000);
 
-// ── HERO H1 LETTER ANIMATION ──
-window.addEventListener('load',()=>{
-  document.querySelectorAll('.hero-h1').forEach(h=>{
-    h.style.opacity='1';
-  });
+// NAV ACTIVE
+const secs=document.querySelectorAll('section[id]');
+const nls=document.querySelectorAll('.nav-links a');
+window.addEventListener('scroll',()=>{
+  let cur='';secs.forEach(s=>{if(window.scrollY>=s.offsetTop-120)cur=s.id;});
+  nls.forEach(a=>{a.style.color=a.getAttribute('href')==='#'+cur?'#fff':'';});
 });
 
-// ── NAV ACTIVE SCROLL ──
-const sections=document.querySelectorAll('section[id]');
-const navLinks=document.querySelectorAll('.nav-links a');
-window.addEventListener('scroll',()=>{
-  let cur='';
-  sections.forEach(s=>{
-    if(window.scrollY>=s.offsetTop-120)cur=s.id;
+// ================================================================
+// FORMULARIO → SHEETBEST
+// ================================================================
+// INSTRUCCIONES:
+// 1. Ve a https://sheetbest.com → Sign up (gratuito)
+// 2. Crea un Google Sheet con ESTAS columnas exactas en la fila 1:
+//    Timestamp | Nombre | Apellido | Edad | Sexo | Telefono | Email |
+//    Iglesia | Contacto_Emergencia | Telefono_Emergencia | Plan |
+//    Metodo_Pago | Estado_Pago | Busca_Crecimiento_Espiritual |
+//    Busca_Identidad | Busca_Comunidad | Busca_Liberacion |
+//    Busca_Liderazgo | Expectativa | Peticion_Oracion
+// 3. En SheetBest: New Connection → pega el link de tu Google Sheet
+// 4. Copia la "API URL" y pégala abajo reemplazando TU-ID-AQUI
+// ================================================================
+const SHEETBEST_URL='https://api.sheetbest.com/sheets/TU-ID-AQUI';
+
+const form=document.getElementById('inscripcionForm');
+const btnSubmit=document.getElementById('btnSubmit');
+const formLoading=document.getElementById('formLoading');
+const formSuccess=document.getElementById('formSuccess');
+const formStatus=document.getElementById('formStatus');
+
+form.addEventListener('submit',async function(e){
+  e.preventDefault();
+
+  // Validar campos requeridos
+  let valid=true;
+  form.querySelectorAll('[required]').forEach(el=>{
+    if(el.type==='radio'){
+      const ok=[...form.querySelectorAll(`[name="${el.name}"]`)].some(r=>r.checked);
+      if(!ok){valid=false;}
+    } else if(!el.value.trim()){
+      valid=false;
+      el.style.borderColor='#c0392b88';
+    } else {
+      el.style.borderColor='';
+    }
   });
-  navLinks.forEach(a=>{
-    a.style.color=a.getAttribute('href')==='#'+cur?'#fff':'';
-  });
+
+  if(!valid){
+    formStatus.textContent='Por favor completa todos los campos requeridos (*)';
+    formStatus.className='form-status error';
+    return;
+  }
+
+  // Construir objeto de datos
+  const fd=new FormData(form);
+  const data={Timestamp:new Date().toLocaleString('es-DO',{timeZone:'America/Santo_Domingo'})};
+
+  // Campos normales (excluir checkboxes que manejamos aparte)
+  const checkNames=['Busca_Crecimiento_Espiritual','Busca_Identidad','Busca_Comunidad','Busca_Liberacion','Busca_Liderazgo'];
+  for(let [k,v] of fd.entries()){
+    if(!checkNames.includes(k)) data[k]=v;
+  }
+  // Checkboxes: Si = marcado, No = sin marcar
+  checkNames.forEach(k=>{data[k]=fd.get(k)?'Si':'No';});
+
+  formLoading.classList.add('active');
+  btnSubmit.disabled=true;
+  formStatus.className='form-status';
+
+  try{
+    const res=await fetch(SHEETBEST_URL,{
+      method:'POST',
+      headers:{'Content-Type':'application/json'},
+      body:JSON.stringify(data)
+    });
+    if(!res.ok) throw new Error('HTTP '+res.status);
+    formLoading.classList.remove('active');
+    formSuccess.classList.add('active');
+  } catch(err){
+    formLoading.classList.remove('active');
+    btnSubmit.disabled=false;
+    formStatus.textContent='Error al enviar. Verifica tu conexión e intenta de nuevo.';
+    formStatus.className='form-status error';
+    console.error('SheetBest error:',err);
+  }
+});
+
+// Limpiar borde rojo al escribir
+form.querySelectorAll('.finput,.fselect,.ftextarea').forEach(el=>{
+  el.addEventListener('input',()=>el.style.borderColor='');
 });
 </script>
 </body>
